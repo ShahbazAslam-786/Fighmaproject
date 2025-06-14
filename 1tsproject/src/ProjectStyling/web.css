@@ -1,0 +1,94 @@
+.container {
+  position: relative;
+  width: 250px;
+  height: 55px;
+  top: 42px;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000000;
+  text-align: center;
+}
+
+.task-section {
+  flex-direction: column;
+  width: 42px;
+  height: 22px;
+  font-family: 'Inter';
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  text-transform: capitalize;
+  top: 16.55px; 
+  color: #FFFFFF;
+}
+
+.location {
+  width: 250px;
+  height: 55px;
+  top: 114px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+.menu-button {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-family: 'Inter';
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.logout-section {
+  margin-top: auto;
+}
+
+.task-inline {
+  display: inline-flex;        /* Lets it behave like text yet use Flexbox */
+  align-items: center;         /* Vertically center icon + text */ /* :contentReference[oaicite:1]{index=1} */
+  gap: 8px;
+  text-decoration: none;
+}
+
+.task-icon {
+  width: 42px;                 /* Fixed width */
+  height: 22px;                /* Fixed height */
+  flex-shrink: 0;              /* Prevents shrinking inside flex */ /* :contentReference[oaicite:2]{index=2} */
+  vertical-align: middle;
+}
+
+.locate {
+position:absolute;
+width: 250px;
+height: 55px;
+top: 114px;
+border-top-right-radius: 20px;
+border-bottom-right-radius: 20px;
+width: 113px;
+height: 22.90909194946289px;
+gap: 20px;
+}
+
+.location-btn{
+  width: 75px;
+height: 22px;
+width: 18px;
+height: 22.90909194946289px;
+
+font-family: Inter;
+font-weight: 500;
+font-size: 18px;
+line-height: 100%;
+letter-spacing: 0%;
+vertical-align: middle;
+text-transform: capitalize;
+
+}

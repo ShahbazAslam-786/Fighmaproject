@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router";
 
 export const WebLogin = () => {
     const [email, setEmail] = useState("");
@@ -20,7 +21,7 @@ export const WebLogin = () => {
         <div className="main-container">
             <div className="login-container">
                 <div className="login-form">
-                    <h1 className="heading">Log In</h1>
+                  
                     <form onSubmit={handleFormSubmit}>
                         <input
                             type="text"
@@ -32,7 +33,7 @@ export const WebLogin = () => {
                             placeholder="Email"
                         />
 
-                       
+
                         <div className="password-wrapper">
                             <input
                                 type={showPassword ? "text" : "password"}

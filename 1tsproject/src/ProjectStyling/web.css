@@ -1,94 +1,334 @@
-.container {
-  position: relative;
-  width: 250px;
-  height: 55px;
-  top: 42px;
-  border-top-right-radius: 100px;
-  border-bottom-right-radius: 100px; 
+.task-manager {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #000000;
-  text-align: center;
+  height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-.task-section {
+.sidebar {
+  width: 200px;
+  background-color: #ffffff;
+  display: flex;
   flex-direction: column;
-  width: 42px;
-  height: 22px;
-  font-family: 'Inter';
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 100%;
-  letter-spacing: 0%;
-  vertical-align: middle;
-  text-transform: capitalize;
-  top: 16.55px; 
-  color: #FFFFFF;
 }
 
-.location {
-  width: 250px;
-  height: 55px;
-  top: 114px;
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 24px 0;
+}
+
+.menu-items {
+  flex: 1;
+  padding: 0 12px;
+}
+
+.menu-item {
+  padding-top: 13px;
+  padding-bottom: 13px;
+  padding-left: 60px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
+  margin-bottom: 4px;
+  margin-left: -30px;
 }
 
-.no-underline {
-  text-decoration: none;
+
+
+.menu-item:hover {
+  background-color: #f3f4f6;
 }
 
-.menu-button {
-  color: #FFFFFF;
-  text-decoration: none;
-  font-family: 'Inter';
-  font-size: 24px;
-  font-weight: 700;
+
+.menu-item.active {
+  background-color: #000000;
+  color: #ffffff;
 }
 
-.logout-section {
+.menu-icon {
+  margin-right: 12px;
+  width: 16px;
+  height: 16px;
+}
+
+.logout {
+  display: flex;
+  align-items: center;
+  padding: 8px 24px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
   margin-top: auto;
 }
 
-.task-inline {
-  display: inline-flex;        /* Lets it behave like text yet use Flexbox */
-  align-items: center;         /* Vertically center icon + text */ /* :contentReference[oaicite:1]{index=1} */
-  gap: 8px;
-  text-decoration: none;
+.logout:hover {
+  background-color: #f3f4f6;
 }
 
-.task-icon {
-  width: 42px;                 /* Fixed width */
-  height: 22px;                /* Fixed height */
-  flex-shrink: 0;              /* Prevents shrinking inside flex */ /* :contentReference[oaicite:2]{index=2} */
-  vertical-align: middle;
+.main-content {
+  flex: 1;
+  overflow: hidden;
 }
 
-.locate {
-position:absolute;
-width: 250px;
-height: 55px;
-top: 114px;
-border-top-right-radius: 20px;
-border-bottom-right-radius: 20px;
-width: 113px;
-height: 22.90909194946289px;
-gap: 20px;
+.tasks-view,
+.location-view {
+  height: 100%;
+  overflow-y: auto;
+  padding: 32px;
 }
 
-.location-btn{
-  width: 75px;
-height: 22px;
-width: 18px;
-height: 22.90909194946289px;
+.add-task-btn {
+  background: none;
+  border: none;
+  color: #6b7280;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 8px 0;
+  margin-bottom: 32px;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+}
 
-font-family: Inter;
-font-weight: 500;
-font-size: 18px;
-line-height: 100%;
-letter-spacing: 0%;
-vertical-align: middle;
-text-transform: capitalize;
+.add-task-btn:hover {
+  color: #374151;
+}
 
+.tasks-section,
+.location-section {
+  margin-bottom: 48px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 24px;
+}
+
+.task-list,
+.location-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.task-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.task-item.completed {
+  opacity: 0.6;
+}
+
+.task-checkbox {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  cursor: pointer;
+  accent-color: #10b981;
+}
+
+.task-content {
+  flex: 1;
+}
+
+.task-text {
+  display: block;
+  font-size: 14px;
+  color: #111827;
+  line-height: 1.4;
+}
+
+.task-item.completed .task-text {
+  color: #6b7280;
+  text-decoration: line-through;
+}
+
+.task-due-date {
+  font-size: 12px;
+  color: #ef4444;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+}
+
+/* Location Styles */
+.location-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.location-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #ef4444;
+  border-radius: 50%;
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+.location-dot.current {
+  background-color: #ef4444;
+}
+
+.location-content {
+  flex: 1;
+}
+
+.location-name {
+  font-size: 14px;
+  color: #111827;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.location-time {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 24px;
+  width: 384px;
+  max-width: 90vw;
+  margin: 16px;
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 24px;
+}
+
+.modal-form {
+  margin-bottom: 32px;
+}
+
+.form-field {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.field-icon {
+  font-size: 16px;
+  color: #9ca3af;
+  width: 16px;
+  text-align: center;
+}
+
+.field-input {
+  flex: 1;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #111827;
+}
+
+.field-input::placeholder {
+  color: #9ca3af;
+}
+
+.modal-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.save-btn {
+  width: 100%;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.save-btn:hover {
+  background-color: #1f2937;
+}
+
+.cancel-btn {
+  width: 100%;
+  background: none;
+  color: #6b7280;
+  padding: 8px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.cancel-btn:hover {
+  color: #374151;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .task-manager {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+  }
+
+  .sidebar-content {
+    flex-direction: row;
+    padding: 10px;
+  }
+
+  .menu-items {
+    display: flex;
+    gap: 10px;
+  }
+
+  .tasks-view,
+  .location-view {
+    padding: 20px;
+  }
+
+  .modal-content {
+    width: 90%;
+    margin: 20px;
+  }
 }
